@@ -1,24 +1,26 @@
 name : Node-js-cli
 
 on:
-  push : [main]
-  pull_request : [main]
+  push: 
+    branches: [main]
+  pull_request: 
+    branches: [main]
 
 jobs:
   build: 
     runs_on: ubuntu-latest
 
   steps:
-    -name: checkout code
-    uses: actions/checkout@v4
+    - name: checkout code
+      uses: actions/checkout@v4
 
-    -name: Setup Nodejs
-    uses: actions/setup-node@v4
-    with: 
-      node-version-18
+    - name: Setup Nodejs
+      uses: actions/setup-node@v4
+      with: 
+        node-version: 18
 
-    -name: install dependencies
-    run: npm install
+    - name: install dependencies
+      run: npm install
 
-    -name: run tests
-    run: npm test
+    - name: run tests
+      run: npm test
